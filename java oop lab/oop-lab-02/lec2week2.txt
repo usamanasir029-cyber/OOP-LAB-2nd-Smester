@@ -1,0 +1,9 @@
+class student {
+
+	string name;
+	void printlabel(){
+		system.out.println(name);
+	
+}
+	
+}
