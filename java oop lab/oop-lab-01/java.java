@@ -1,5 +1,5 @@
 public class java {
 	public static void main(String args[]){
-		System.out.println("Fuck You Java Scrip....!");
+		System.out.println("I am writting Java Script....!");
 	}
 }
