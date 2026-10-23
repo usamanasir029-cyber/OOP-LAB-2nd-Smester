@@ -1,0 +1,46 @@
+CSC241 - Lab 02 - PREDICTIONS (written BEFORE compiling and running)
+
+TASK 1 - Task1Demo
+Prediction: three lines print with 42, 36 and 51 credits. After adding 9 to
+s2 only, Ali Ishtiaq shows 45 while the other two stay at 42 and 51.
+Result: matched.
+
+TASK 2 - Task2Demo
+s1.addCredits(9)            -> Abeer Amina 42 + 9  = 51
+s2.addCredits(12)           -> Ali Ishtiaq 36 + 12 = 48
+s1.remainingCredits(133)    -> 133 - 51 = 82
+s2.remainingCredits(133)    -> 133 - 48 = 85
+s1.summary()                -> one line with id, name and credits
+Result: matched.
+
+TASK 3 - OverloadDemo
+enroll("CSC241")        -> calls enroll(String),      default section message
+enroll("CSC241", 2)     -> calls enroll(String, int), section 2 message
+enroll(241)             -> calls enroll(int),         numeric code message
+enroll()                -> compile error, no overload takes zero arguments
+enroll("241", "2")      -> compile error, no overload takes (String, String)
+int enroll(String)      -> compile error, already defined (return type ignored)
+Result: matched.
+
+TASK 4 - PassByValueDemo
+Experiment A (primitive int)
+  Before        : 42
+  Inside Method : 42 then 99
+  After         : 42        (caller unchanged)
+Experiment B (object mutation)
+  Before        : 42
+  Inside Method : 42 then 99
+  After         : 99        (caller sees the mutation)
+Experiment C (parameter reassignment)
+  Before        : Ali Ishtiaq
+  Inside Method : Ali Ishtiaq then Temporary
+  After         : Ali Ishtiaq (caller variable not redirected)
+Result: matched.
+
+TASK 5 - AIExperimentDemo
+first  starts 12 / 50 -> remaining 38
+second starts 30 / 80 -> remaining 50
+first.runEpochs(8)        -> 20 / 50, remaining 30, second untouched at 30 / 80
+second.runEpochs(10, 5)   -> 45 / 80, remaining 35, first untouched at 20 / 50
+trainExtra(first, 6)      -> 26 / 50 inside the helper AND after it returns
+Result: matched.

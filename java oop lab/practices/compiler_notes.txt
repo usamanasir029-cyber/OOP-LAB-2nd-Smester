@@ -1,0 +1,57 @@
+CSC241 - Lab 02 - COMPILER NOTES (Task 3)
+
+ATTEMPT 1 - overload that differs only by return type
+Added to OverloadDemo.java:
+
+    int enroll(String courseCode) {
+        return 1;
+    }
+
+Command : javac OverloadDemo.java
+Message :
+
+OverloadDemo.java:26: error: method enroll(String) is already defined in class OverloadDemo
+    int enroll(String courseCode) {
+        ^
+1 error
+
+Reason: the method signature is only the name plus the parameter list, so
+enroll(String) and enroll(String) are the same signature. The return type is
+not part of the signature, and at a call site such as enroll("CSC241") the
+compiler would have no information to choose between the two. Fix: the method
+was commented out.
+
+ATTEMPT 2 - call with no arguments
+    demo.enroll();
+
+OverloadDemo.java:33: error: no suitable method found for enroll()
+        demo.enroll();
+            ^
+    method OverloadDemo.enroll(String) is not applicable
+      (actual and formal argument lists differ in length)
+    method OverloadDemo.enroll(String,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method OverloadDemo.enroll(int) is not applicable
+      (actual and formal argument lists differ in length)
+1 error
+
+ATTEMPT 3 - call with two String arguments
+    demo.enroll("241", "2");
+
+OverloadDemo.java:34: error: no suitable method found for enroll(String,String)
+        demo.enroll("241", "2");
+            ^
+    method OverloadDemo.enroll(String) is not applicable
+      (actual and formal argument lists differ in length)
+    method OverloadDemo.enroll(String,int) is not applicable
+      (argument mismatch; String cannot be converted to int)
+    method OverloadDemo.enroll(int) is not applicable
+      (actual and formal argument lists differ in length)
+1 error
+
+Both invalid calls were commented out after the message was recorded.
+
+STRETCH QUESTION
+If show(long) and show(double) both exist, the call show(10) selects
+show(long). The literal 10 is an int, and widening to long is preferred over
+widening to double because long is the narrower of the two applicable types.
